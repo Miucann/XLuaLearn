@@ -70,4 +70,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 #Unity UnityLockfile
-/UnityLockfile/ 
+/XLuaLearn_Client/Temp/UnityLockfile
