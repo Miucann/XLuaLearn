@@ -69,5 +69,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-#Unity UnityLockfile
+#自定义屏蔽
 /XLuaLearn_Client/Temp/UnityLockfile
+/XLuaLearn_Client/Temp/
+/XLuaLearn_Client/Library/
