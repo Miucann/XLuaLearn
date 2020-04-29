@@ -1,0 +1,7 @@
+tab={num1=1,num2=2}
+tab.boolValue=false
+tab.num3=3.14
+tab.str="I am str in lua table"
+function tab.func()
+	print("I am a lua func in lua table")
+end
