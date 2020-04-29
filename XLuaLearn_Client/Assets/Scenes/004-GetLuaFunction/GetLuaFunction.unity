@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012708b2ae306554fbcd52f5effbb8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  luaSprit: {fileID: 4900000, guid: b252c72ab1b62a64dacd996ca89a8247, type: 3}
 --- !u!1 &572598496
 GameObject:
   m_ObjectHideFlags: 0

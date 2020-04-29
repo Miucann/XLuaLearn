@@ -1,0 +1,14 @@
+function Log()
+	print("我是lua无参函数")
+end
+
+function Add(num1,num2)
+    print("我是lua加法函数")
+	return num1+num2
+end
+
+function MultipleReturn(str)
+	print("我是lua多返回值函数")
+	print("你传过来的参数是：",str)
+	return 1,"hello C#"
+end
