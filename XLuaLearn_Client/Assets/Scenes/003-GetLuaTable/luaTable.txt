@@ -5,3 +5,6 @@ tab.str="I am str in lua table"
 function tab.func()
 	print("I am a lua func in lua table")
 end
+
+dictab={1,2}
+dictab.a="a"

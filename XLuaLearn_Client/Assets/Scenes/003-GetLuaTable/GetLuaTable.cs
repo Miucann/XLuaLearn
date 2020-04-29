@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using XLua;
+
 public class GetLuaTable : MonoBehaviour
 {
     public TextAsset luaScript;     //因为重点学的是获取luatable，所以这里使用最简便的方式获取lua测试脚本，具体加载脚本的方式看002
@@ -25,6 +26,21 @@ public class GetLuaTable : MonoBehaviour
         IGetLuaTable _getLuaTable = luaEnv.Global.Get<IGetLuaTable>("tab");
         Debug.Log(_getLuaTable.num1 + "  " + _getLuaTable.num2 + "  " + _getLuaTable.boolValue + "  " + _getLuaTable.num3 + " " + _getLuaTable.str); //lua table中常用类型打印
         _getLuaTable.func(); //lua table 中lua函数的执行
+
+        //访问lua表方式三，轻量级的方式：映射到Dictionary 和List，使用这个有个前提，tab下key和value的值都是一致的,比如key是int 那个value也必须是int
+
+        //使用dictionary 用此方式只有lua表中每个键值对类型一致就可以
+        Dictionary<object, object> luatableDic = luaEnv.Global.Get<Dictionary<object,object>>("dictab");
+        foreach (KeyValuePair<object, object> kvp in luatableDic)
+        {
+            Debug.Log(kvp.Key + "  " + kvp.Value);
+        }
+        //使用List 用此方式lua中的所有键值对必须统一是一种类型的，所以下面只会打印lua脚本中int类型的值
+        List<object> luatableLst = luaEnv.Global.Get<List<object>>("dictab");
+        foreach (var item in luatableLst)
+        {
+            Debug.Log(item);
+        }
 
     }
     //定义一个class有对应luatable的字段的public属性，而是有无参构造函数即可
