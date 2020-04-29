@@ -74,3 +74,6 @@ crashlytics-build.properties
 /XLuaLearn_Client/Temp/
 /XLuaLearn_Client/Library/
 XLuaLearn_Client/ProjectSettings/ProjectVersion.txt
+XLuaLearn_Client/Logs/
+XLuaLearn_Client/obj/
+
