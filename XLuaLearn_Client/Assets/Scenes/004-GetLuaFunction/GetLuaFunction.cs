@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XLua;
+using XLua.LuaDLL;
 
 //C#获取lua函数的方式
 
@@ -46,6 +47,12 @@ public class GetLuaFunction : MonoBehaviour
         {
             Debug.Log(item);
         }
+
+        //官方推荐如果lua函数不是多返回值函数，建议使用Action和Func，这两个是无CG api，也可以自己去Luafunction里面去加
+        Func<int, int, int> CSFunc = luaEnv.Global.Get<Func<int, int, int>>("Add");
+        int funcReslut;
+        funcReslut= CSFunc(21, 22);
+        Debug.Log("使用C# Func来接收加法结果：" + funcReslut);
     }
     //定义三种委托，分别对应lua的无参函数，有参函数，多返回值函数，其中无参函数直接用Action
     //坑点！！！！！！一定要声明为public，然后clear，generate。如果不声明为public会一直跟你报错说
