@@ -1,0 +1,2 @@
+local gameObject=CS.UnityEngine.GameObject("LuaCreatGameObject")  --用lua调用CS的接口创建一个GameObject
+print("this gameObject's name:",gameObject.name)
