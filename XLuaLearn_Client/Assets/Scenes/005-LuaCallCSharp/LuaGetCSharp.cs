@@ -10,7 +10,7 @@ public class LuaGetCSharp : MonoBehaviour
     void Start()
     {
         luaEnv = new LuaEnv();
-        luaEnv.DoString(luaScript.text); 
+        luaEnv.DoString(luaScript.text);
     }
 
     private void OnDestroy()

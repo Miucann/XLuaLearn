@@ -778,6 +778,11 @@ namespace XLua
             {
                 string filename = LuaAPI.lua_tostring(L, 1);
 
+                if (filename == "LuaDebuggee")
+                {
+                    return 0;
+                }
+
                 LuaEnv self = ObjectTranslatorPool.Instance.Find(L).luaEnv;
 
                 foreach (var loader in self.customLoaders)

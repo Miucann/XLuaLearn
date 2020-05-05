@@ -1,2 +1,50 @@
-local gameObject=CS.UnityEngine.GameObject("LuaCreatGameObject")  --用lua调用CS的接口创建一个GameObject
-print("this gameObject's name:",gameObject.name)
+
+--[[
+1.Lua 中没有new关键字
+2.所有C#相关都放到CS下，包括构造函数，静态成员属性，方法
+3.xlua支持重载
+ 在C#中new一个对象：
+var newGameObj = new UnityEngine.GameObject();
+ 对应在lua中是这样的
+local newGameObj = CS.UnityEngine.GameObject()
+xlua调用C#方法的重载
+local newGameObj2 = CS.UnityEngine.GameObject('helloworld')
+]]--
+local LuaCreatGameObject=CS.UnityEngine.GameObject("LuaCreatGameObject")  --用lua调用CS的接口创建一个GameObject
+print("this gameObject's name:",LuaCreatGameObject.name)
+
+--[[
+xlua 访问C#的静态属性、方法，使用.的方式，和C#一样
+]]--
+--1.访问静态属性
+local deltaTime=CS.UnityEngine.Time.deltaTime
+print("Lua get UnityEngine deltaTime：",deltaTime)
+
+--2.写静态属性
+--注意，lua获取C#这边的值，应该是值拷贝，所以，如果先获取值，再给lua复制
+--是不会影响C#里面相关属性的
+CS.UnityEngine.Time.timeScale=0.5
+print("Lua write C# static propert:",CS.UnityEngine.Time.timeScale)
+
+--3.调用静态方法
+local GameObject=CS.UnityEngine.GameObject
+GameObject.Find("Helloworld")
+
+--[[
+XLua 访问C#成员属性，方法
+在c#中新建一个Test类来测试，此类中有一个num成员属性
+和一个Add成员方法
+]]--
+
+--新建一个类对象
+test=CS.MyTest.Test()
+
+--1.访问C#成员属性
+num=test.num;
+print("Num:",num)
+--2.写静态属性
+test.num=2;
+print("test num:",test.num)
+
+reslut=test:Add(1,2)
+print(reslut)
